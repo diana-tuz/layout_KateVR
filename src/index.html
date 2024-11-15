@@ -6,14 +6,172 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <h1>Hello Mate Academy</h1>
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="#"
+          class="header__logo-img"
+        >
+          <img
+            alt="#"
+            src="./images/Logo.png"
+            class="header__logo-img"
+          />
+        </a>
+        <select
+          class="header__lang"
+          name="language"
+          id="select"
+          onchange="changeLanguage(value)"
+        >
+          <option value="en">en</option>
+          <option value="ua">ua</option>
+        </select>
+      </div>
+      <div class="header__right">
+        <nav>
+          <ul class="header__nav">
+            <li>
+              <a
+                href="#about"
+                id="navAbout"
+                class="header__nav-link"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#tech"
+                id="navTech"
+                class="header__nav-link"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#benefits"
+                id="navBenefits"
+                class="header__nav-link"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                id="navContact"
+                class="header__nav-link"
+              ></a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          id="buttonByu"
+          class="header__button"
+        ></button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero__wrapper">
+          <div class="hero__title">
+            <h1 class="hero__title-h1">
+              <span id="h1White"></span>
+              <span
+                id="h1Blue"
+                class="hero__title-h1_blue"
+              ></span>
+            </h1>
+            <p
+              id="heroDescription"
+              class="hero__title-description"
+            ></p>
+            <p class="hero__title-price">1200$</p>
+            <button class="hero__title-button button__play">
+              <p
+                class="hero__title-button_label button__play"
+                id="heroButtonPlay"
+              ></p>
+            </button>
+          </div>
+          <div class="hero__slider">
+            <div class="hero__slider-content">
+              <div
+                class="hero__slider-content_wrapper"
+                id="slider"
+              >
+                <img
+                  alt="#"
+                  class="hero__image"
+                  id="heroImage"
+                  src="./images/hero.png"
+                />
+                <img
+                  alt="#"
+                  class="hero__image"
+                  id="heroImage2"
+                  src="./images/videoPreview.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__menu">
+          <ul class="hero__menu-info">
+            <li>
+              <a
+                href="#faq"
+                class="hero__menu-info_item"
+                id="heroFaq"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#help"
+                class="hero__menu-info_item"
+                id="heroHelp"
+              ></a>
+            </li>
+          </ul>
+          <a
+            href="#about"
+            class="hero__menu-more"
+            id="more"
+          ></a>
+          <div class="hero__menu-buttons">
+            <button
+              class="hero__menu-button buttonActive"
+              type="button"
+              onclick="showNextImage()"
+              id="buttonPrev"
+            ></button>
+            <button
+              class="hero__menu-button"
+              onclick="showPrevImage()"
+              id="buttonNext"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
     <script src="scripts/main.js"></script>
   </body>
 </html>

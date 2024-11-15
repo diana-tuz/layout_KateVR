@@ -161,14 +161,21 @@ header {
     grid-template-columns: repeat(12, 1fr);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 
 .hero {
+  padding-bottom: 55px;
+
   @media screen and (min-width: 768px) {
     position: relative;
+    padding-bottom: 70px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 84px;
   }
 
   &__wrapper {
@@ -304,7 +311,6 @@ header {
     grid-column: 1/3;
     margin: 0 auto;
     overflow: hidden;
-
     z-index: -10;
     width: 90vw;
     &-content {
@@ -327,12 +333,7 @@ header {
   }
 
   &__menu {
-    align-items: center;
-    display: flex;
-    grid-column: 1/3;
-    justify-content: space-between;
-    margin-top: 115px;
-    max-width: 90vw;
+    display: none;
 
     &-info,
     &-buttons {
@@ -374,9 +375,166 @@ header {
       -ms-transition: border 1ms ease-in;
       -o-transition: border 1ms ease-in;
     }
+
+    @media screen and (min-width: 768px) {
+      align-items: center;
+      display: flex;
+      grid-column: 1/3;
+      justify-content: space-between;
+      margin-top: 115px;
+      max-width: 90vw;
+    }
   }
 }
 
 .buttonActive {
   border-bottom: 1px solid #fff;
+}
+
+.info {
+  background-color: $darkBlue;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 70px;
+    }
+
+    &-h2_blue,
+    &-subtitle {
+      color: $lightBlue;
+    }
+  }
+
+  &__cards {
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      flex-flow: wrap;
+    }
+    &-item {
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        width: 40%;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 20%;
+      }
+    }
+
+    &-title {
+      margin-bottom: 11px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 18px;
+      }
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+        height: 84px;
+        width: fit-content;
+        margin-bottom: 22px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.about {
+  background: $gradient;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+  &__product {
+    &-slider {
+      overflow: hidden;
+      grid-column: 3/8;
+
+      &_content {
+        width: 100%;
+
+        &-wrapper {
+          width: 100%;
+          display: flex;
+          transition: transform 0.8s ease-in-out;
+        }
+      }
+
+      &_image {
+        flex: 1 0 100%;
+        width: 100%;
+        height: 100%;
+      }
+
+      &_buttons {
+        align-items: center;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        border-bottom: 1px solid #212121;
+        width: fit-content;
+      }
+      &_button {
+        width: 85px;
+        padding: 13px 8px;
+      }
+    }
+
+    &-title {
+      grid-column: 8/12;
+
+      &_h2 {
+        margin-bottom: 40px;
+
+        &-blue {
+          color: $lightBlue;
+        }
+      }
+
+      &_description {
+        margin-bottom: 40px;
+      }
+    }
+  }
 }

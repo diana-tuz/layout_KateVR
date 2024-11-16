@@ -51,9 +51,8 @@ li {
   list-style: none;
 }
 
-main {
+.container {
   margin: 0 auto;
-  min-height: 100vh;
   padding: 0;
   width: 90dvw;
 
@@ -167,15 +166,17 @@ header {
 }
 
 .hero {
-  padding-bottom: 55px;
+  &__container {
+    padding-bottom: 55px;
 
-  @media screen and (min-width: 768px) {
-    position: relative;
-    padding-bottom: 70px;
-  }
+    @media screen and (min-width: 768px) {
+      position: relative;
+      padding-bottom: 70px;
+    }
 
-  @media screen and (min-width: 1280px) {
-    padding-bottom: 84px;
+    @media screen and (min-width: 1280px) {
+      padding-bottom: 84px;
+    }
   }
 
   &__wrapper {
@@ -252,6 +253,7 @@ header {
       font-weight: 700;
       grid-column: 1/2;
       margin-bottom: 25px;
+      color: $text;
 
       @media screen and (min-width: 1280px) {
         margin-bottom: 45px;
@@ -388,7 +390,15 @@ header {
 }
 
 .buttonActive {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid $lightBlue;
+}
+
+.dotActive {
+  border: 3px solid $text;
+}
+
+.blue {
+  color: $lightBlue;
 }
 
 .info {
@@ -476,7 +486,7 @@ header {
 }
 
 .about {
-  // background: $gradient;
+  background: $gradient;
   padding: 50px 0;
 
   @media screen and (min-width: 768px) {
@@ -486,47 +496,103 @@ header {
   @media screen and (min-width: 1280px) {
     padding: 100px 0;
   }
-  &__product {
-    margin-bottom: 183px;
-    &-slider {
-      overflow: hidden;
-      grid-column: 3/8;
 
+  &__product {
+    &-slider {
+      align-items: center;
+      grid-column: 1/3;
+      justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 183px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 3/8;
+      }
+
+      &-h2 {
+        margin-bottom: 20px;
+
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
+      }
       &_content {
         width: 100%;
 
         &-wrapper {
-          width: 100%;
           display: flex;
           transition: transform 0.8s ease-in-out;
+          width: 100%;
         }
       }
 
       &_image {
         flex: 1 0 100%;
-        width: 100%;
         height: 100%;
+        width: 100%;
       }
 
       &_buttons {
         align-items: center;
+        border-bottom: 1px solid #212121;
         display: flex;
         gap: 15px;
         justify-content: center;
-        border-bottom: 1px solid #212121;
         width: fit-content;
       }
+
       &_button {
-        width: 85px;
+        display: none;
         padding: 13px 8px;
+        width: 85px;
+
+        @media screen and (min-width: 768px) {
+          display: inline-block;
+        }
+      }
+
+      &_dots {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 15px;
+
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
+      }
+
+      &_dot {
+        background: $gray;
+        border-radius: 50%;
+        height: 5px;
+        width: 5px;
       }
     }
 
     &-title {
-      grid-column: 8/12;
+      grid-column: 1/3;
+
+      @media screen and (min-width: 768px) {
+        grid-column: 1/6;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 8/12;
+      }
 
       &_h2 {
-        margin-bottom: 40px;
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 40px;
+          display: block;
+        }
 
         &-blue {
           color: $lightBlue;
@@ -538,9 +604,26 @@ header {
       }
     }
   }
+
   &__meet {
     &-title {
-      grid-column: 2/6;
+      grid-column: 1/3;
+
+      @media screen and (min-width: 768px) {
+        grid-column: 1/6;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 2/6;
+      }
+
+      &_button {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+      }
 
       &_small {
         color: $lightBlue;
@@ -559,5 +642,232 @@ header {
         margin-bottom: 40px;
       }
     }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        background-image: url('../images/adout.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        grid-column: 6/12;
+      }
+    }
   }
+}
+
+.why {
+  background: $darkBlue;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+}
+
+.tech {
+  padding: 50px 0;
+  background: $gradient;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+
+  &__container-h2 {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 9/12;
+    }
+  }
+
+  &__wrapper {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1/6;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1/12;
+    }
+
+    &-left {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2/5;
+        z-index: 2;
+      }
+    }
+
+    &-img {
+      grid-column: 1/12;
+      z-index: 0;
+      margin: 0 auto;
+      position: relative;
+
+      @media screen and (min-width: 1280px) {
+        margin: 120px 0 0;
+        grid-column: 5/9;
+      }
+    }
+    &-button1,
+    &-button2,
+    &-button3 {
+      position: absolute;
+      background: $lightBlue;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      z-index: 5;
+    }
+    &-button1 {
+      top: 0;
+      left: 25%;
+    }
+    &-button2 {
+      bottom: 35%;
+      right: 25%;
+    }
+    &-button3 {
+      bottom: 0;
+      left: 0;
+    }
+    &-info1,
+    &-info2,
+    &-info3 {
+      background: $gray;
+      position: absolute;
+      border-radius: 8px;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.8ms ease-in;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    &-info1 {
+      top: -30%;
+      right: -20%;
+    }
+    &-info2 {
+      bottom: 20%;
+      right: 45%;
+    }
+    &-info3 {
+      bottom: 20%;
+      left: -40px;
+    }
+  }
+
+  &__sensor {
+    margin-left: 25px;
+    margin-top: 55px;
+    position: relative;
+
+    &-title {
+      margin-bottom: 20px;
+    }
+
+    &-subtitle {
+      max-width: 200px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow1.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 72px;
+        left: 101px;
+        padding: 100px 0;
+        position: absolute;
+        top: 11px;
+        width: 125%;
+      }
+    }
+  }
+
+  &__connection {
+    margin-left: 100px;
+    margin-top: 150px;
+    position: relative;
+
+    &-title {
+      align-items: baseline;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow2.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        bottom: 100px;
+        display: block;
+        height: 113px;
+        left: 140px;
+        position: absolute;
+        width: 134px;
+      }
+    }
+  }
+
+  &__batteries {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+      grid-column: 9/12;
+      z-index: 2;
+      position: relative;
+      margin-top: 55px;
+    }
+    &-title {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow3.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 245px;
+        margin-right: 21px;
+        position: absolute;
+        right: 100%;
+        top: 11px;
+        width: 192px;
+      }
+    }
+  }
+}
+
+.displayedInfo {
+  opacity: 1;
+  z-index: 6;
 }

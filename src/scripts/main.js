@@ -13,6 +13,7 @@ const translations = {
       'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!',
     heroButtonPlay: 'Play Video',
     aboutButtonPlay: 'Play Video',
+    meetButtonPlay: 'Play Video',
     heroFaq: 'FAQ',
     heroHelp: 'Help',
     buttonPrev: 'Previous',
@@ -50,8 +51,18 @@ const translations = {
     aboutTiteBlue: 'PRODUCT',
     aboutSubtitle:
       'KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.',
+    meetSubtitle:
+      'KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment ',
+    meetTitle: 'NICE TO MEET',
+    meetTitleBlue: 'YOU!',
+    meetTitleSmall: 'Hello,',
   },
   ua: {
+    meetTitleSmall: 'Привіт,',
+    meetSubtitle:
+      'KAT VR — це незалежна компанія, яка займається дослідженнями, розробкою та продажем продуктів і рішень VR Locomotion. Заснована в 2013 році, ми швидко виросли і стали одним із провідних у світі професійних постачальників обладнання для VR-ігор і симуляторів.',
+    meetTitleBlue: 'ЗНАЙОМСТВУ!',
+    meetTitle: 'РАДИЙ ',
     aboutTite: 'ПРО',
     aboutTiteBlue: 'ПРОДУКТ',
     aboutSubtitle:
@@ -73,6 +84,7 @@ const translations = {
       'Відкрийте для себе найповнішу систему VR Locomotion і розблокуйте нескінченний рух у будь-яких іграх на будь-якій платформі!',
     heroButtonPlay: 'Відтворити',
     aboutButtonPlay: 'Відтворити',
+    meetButtonPlay: 'Відтворити',
     heroFaq: 'FAQ',
     heroHelp: ' Допомога',
     buttonPrev: 'Попередній',

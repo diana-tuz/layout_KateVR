@@ -175,9 +175,10 @@ li {
   }
 
   &__button {
-    padding: 13px 80px;
     background-color: $lightBlue;
     display: none;
+    font-weight: 700;
+    padding: 13px 80px;
     transition: all 0.5s ease-in-out;
 
     &:hover {
@@ -798,14 +799,15 @@ li {
     &-button1,
     &-button2,
     &-button3 {
-      position: absolute;
       background: $lightBlue;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
       font-size: 24px;
-      z-index: 5;
+      font-weight: 700;
+      height: 50px;
+      position: absolute;
       transition: all 0.5s ease-in-out;
+      width: 50px;
+      z-index: 5;
 
       @media screen and (min-width: 1280px) {
         display: none;
@@ -1029,10 +1031,11 @@ li {
   }
   &__button {
     background-color: $lightBlue;
+    font-weight: 700;
     margin: 0 auto;
     padding: 15px 55px;
-    width: 100%;
     transition: all 0.5s ease-in-out;
+    width: 100%;
 
     &:hover {
       background-color: $text;

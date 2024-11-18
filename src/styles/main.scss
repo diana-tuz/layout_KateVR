@@ -1140,17 +1140,22 @@ li {
     width: 100%;
 
     &-link {
+      align-items: start;
       color: $text;
       display: flex;
-      font-size: 21px;
-      font-weight: 500;
-      line-height: 27px;
+      justify-content: flex-start;
+
       padding: 15px;
 
+      width: 100%;
+      &a {
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 27px;
+      }
       &:hover {
         background: $darkBlue;
         color: $lightBlue;
-        width: 100%;
       }
     }
   }

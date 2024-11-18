@@ -320,6 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .getElementById('close')
     .addEventListener('click', () => displayMenu());
   document
+    .querySelectorAll('.menu__nav-link')
+    .forEach((link) => link.addEventListener('click', () => displayMenu()));
+
+  document
     .getElementById('contactUsButton')
     .addEventListener('click', function (event) {
       event.preventDefault();

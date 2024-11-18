@@ -2,6 +2,7 @@
 
 const translations = {
   en: {
+    select: 'en',
     aboutButtonNext: 'Next',
     aboutButtonPlay: 'Play Video',
     aboutButtonPrev: 'Previous',
@@ -104,6 +105,7 @@ const translations = {
     contactUsButton: 'Contact Us',
   },
   ua: {
+    select: 'ua',
     contactUsButton: "Зв'яжіться з нами",
     contactUsSubtitle: 'Виникли запитання?',
     contactUsTitle: "ЗВ'ЯЖІТЬСЯ",
@@ -216,6 +218,7 @@ function changeLanguage(lang) {
       element.textContent = translations[lang][id] || '';
     }
   });
+  document.getElementById('list').classList.remove('displayOptions');
 }
 
 function showNextImage() {
@@ -254,6 +257,9 @@ function displayMenu() {
   document.getElementById('menuMobile').classList.toggle('displayMenu');
   console.info('hello');
 }
+function displayOptions() {
+  document.getElementById('list').classList.toggle('displayOptions');
+}
 window.addEventListener('scroll', () => {
   const viewportHeight = window.innerHeight;
 
@@ -277,8 +283,14 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
   changeLanguage('en');
   document
-    .getElementById('select')
-    .addEventListener('change', (value) => changeLanguage(value));
+    .getElementById('lang')
+    .addEventListener('click', () => displayOptions());
+  document
+    .getElementById('en')
+    .addEventListener('click', () => changeLanguage('en'));
+  document
+    .getElementById('ua')
+    .addEventListener('click', () => changeLanguage('ua'));
   document
     .getElementById('buttonPrev')
     .addEventListener('click', () => showNextImage());

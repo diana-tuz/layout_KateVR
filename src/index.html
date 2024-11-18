@@ -50,14 +50,35 @@
               class="header__logo-img"
             />
           </a>
-          <select
-            class="header__lang"
-            name="language"
-            id="select"
-          >
-            <option value="en">en</option>
-            <option value="ua">ua</option>
-          </select>
+          <div class="header__select">
+            <button
+              class="header__lang"
+              id="lang"
+            >
+              <p id="select"></p>
+              <img
+                src="./images/arrowDown.png"
+                alt="arrowDown"
+              />
+            </button>
+            <div
+              class="header__list"
+              id="list"
+            >
+              <button
+                value="en"
+                id="en"
+              >
+                en
+              </button>
+              <button
+                value="ua"
+                id="ua"
+              >
+                ua
+              </button>
+            </div>
+          </div>
         </div>
         <div class="header__right">
           <nav>
@@ -875,6 +896,9 @@
         </ul>
       </div>
     </footer>
-    <script src="scripts/main.js"></script>
+    <script
+      src="scripts/main.js"
+      defer
+    ></script>
   </body>
 </html>

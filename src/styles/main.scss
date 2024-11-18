@@ -25,7 +25,7 @@ main {
   margin-top: 60px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 150px;
+    margin-top: 250px;
   }
 }
 
@@ -121,6 +121,28 @@ li {
   z-index: 12;
   padding: 30px 0;
 
+  &__select {
+    position: relative;
+    padding: 5px;
+  }
+  &__list {
+    display: none;
+    position: absolute;
+  }
+  &__lang {
+    display: flex;
+    gap: 5px;
+    color: $lightBlue;
+
+    &:hover {
+      color: $text;
+    }
+
+    p {
+      color: inherit;
+    }
+  }
+
   &__wrapper {
     align-items: center;
     display: flex;
@@ -145,13 +167,6 @@ li {
         width: 18.12vw;
       }
     }
-  }
-
-  &__lang {
-    background: transparent;
-    border: none;
-    color: $lightBlue;
-    outline: none;
   }
 
   &__right {
@@ -199,6 +214,10 @@ li {
   }
 }
 
+.displayOptions {
+  display: block;
+}
+
 .grid {
   column-gap: 20px;
   display: grid;
@@ -223,7 +242,7 @@ li {
     }
 
     @media screen and (min-width: 1280px) {
-      padding-bottom: 84px;
+      padding: 84px 0;
     }
   }
 

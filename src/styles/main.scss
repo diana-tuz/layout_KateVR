@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,6 +17,16 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  position: relative;
+}
+
+main {
+  position: relative;
+  margin-top: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 150px;
+  }
 }
 
 a {
@@ -35,13 +46,14 @@ a {
 button {
   align-items: center;
   background: none;
+  border-radius: 4px;
   border: none;
   color: $text;
+  cursor: pointer;
   display: flex;
   font-size: 16px;
   font-weight: 500;
   justify-content: center;
-  cursor: pointer;
   &:hover {
     color: $light;
   }
@@ -69,31 +81,53 @@ li {
   }
 }
 
-header {
-  margin: 0 auto;
-  padding: 0.5vh 0;
-  width: 90dvw;
+.arrowUp {
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid $lightBlue;
+  bottom: 30px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  opacity: 0;
+  padding: 15px;
+  position: fixed;
+  right: 20px;
+  transition: opacity 0.5s ease-in;
+  width: 40px;
+  z-index: 100;
 
   @media screen and (min-width: 768px) {
-    padding: 3.38vh 0;
-    width: 700px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 1060px;
-    margin-bottom: 112px;
-  }
-
-  @media screen and (min-width: 1920px) {
-    width: 1440px;
-    margin-bottom: 245px;
+    height: 50px;
+    right: 30px;
+    width: 50px;
   }
 }
 
+.arrowDisplayed {
+  opacity: 1;
+}
+
+.headerScrolled {
+  background: $gradient;
+  opacity: 0.98;
+  transition: all 0.8s ease-in;
+}
+
 .header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 12;
+  padding: 30px 0;
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  transition: all 0.8s ease-in;
 
   &__logo {
     align-items: center;
@@ -144,9 +178,22 @@ header {
     padding: 13px 80px;
     background-color: $lightBlue;
     display: none;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background-color: $text;
+    }
 
     @media screen and (min-width: 768px) {
       display: grid;
+    }
+  }
+  &__burger {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 768px) {
+      display: none;
     }
   }
 }
@@ -281,6 +328,11 @@ header {
       grid-column: 1/2;
       height: 80px;
       padding: 15px 45px;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       &_label {
         margin-left: 15px;
@@ -372,10 +424,12 @@ header {
       width: 85px;
       padding: 13px 8px;
       transition: border 1ms ease-in;
-      -webkit-transition: border 1ms ease-in;
-      -moz-transition: border 1ms ease-in;
-      -ms-transition: border 1ms ease-in;
-      -o-transition: border 1ms ease-in;
+
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: $lightBlue;
+      }
     }
 
     @media screen and (min-width: 768px) {
@@ -549,6 +603,11 @@ header {
         display: none;
         padding: 13px 8px;
         width: 85px;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          color: $lightBlue;
+        }
 
         @media screen and (min-width: 768px) {
           display: inline-block;
@@ -658,7 +717,7 @@ header {
 }
 
 .why {
-  background: $darkBlue;
+  background: $gradient;
   padding: 50px 0;
 
   @media screen and (min-width: 768px) {
@@ -723,17 +782,6 @@ header {
         grid-column: 5/9;
       }
     }
-    &-button1,
-    &-button2,
-    &-button3 {
-      position: absolute;
-      background: $lightBlue;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-      z-index: 5;
-    }
     &-button1 {
       top: 0;
       left: 25%;
@@ -746,6 +794,24 @@ header {
       bottom: 0;
       left: 0;
     }
+
+    &-button1,
+    &-button2,
+    &-button3 {
+      position: absolute;
+      background: $lightBlue;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      z-index: 5;
+      transition: all 0.5s ease-in-out;
+
+      @media screen and (min-width: 1280px) {
+        display: none;
+      }
+    }
+
     &-info1,
     &-info2,
     &-info3 {
@@ -870,4 +936,211 @@ header {
 .displayedInfo {
   opacity: 1;
   z-index: 6;
+}
+
+.contactUs {
+  background: $darkBlue;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+
+  &__info {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1/3;
+    }
+
+    &-subtitle {
+      color: $lightBlue;
+    }
+    &-title {
+      margin-bottom: 32px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 50px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 26px;
+      }
+    }
+    &-description {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        margin-bottom: 76px;
+      }
+    }
+    &-contacts {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__formWrapper {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 3/7;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 6/12;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+    gap: 15px;
+
+    &-input {
+      background: none;
+      border-bottom: 1px solid #212121;
+      border: none;
+      color: $text;
+      cursor: pointer;
+      padding: 30px;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $text;
+      }
+    }
+    &-description {
+      margin-top: 30px;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &__button {
+    background-color: $lightBlue;
+    margin: 0 auto;
+    padding: 15px 55px;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background-color: $text;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      margin: 0;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 40px 0;
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    grid-column: 1/3;
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    grid-column: 1/2;
+    margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      gap: 40px;
+      margin: 0;
+    }
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 2/3;
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.menu {
+  background: $blue;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in;
+  width: 100vw;
+  z-index: 13;
+
+  &__close {
+    align-self: end;
+    margin-top: 15px;
+    padding-right: 40px;
+  }
+  &__nav {
+    width: 100%;
+
+    &-link {
+      color: $text;
+      display: flex;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 27px;
+      padding: 15px;
+
+      &:hover {
+        background: $darkBlue;
+        color: $lightBlue;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.displayMenu {
+  transform: translateX(0);
+}
+
+.error {
+  border-bottom: 1px solid #911818;
+  &::placeholder {
+    color: #911818;
+  }
+}
+
+.errorMessage {
+  color: #911818;
 }

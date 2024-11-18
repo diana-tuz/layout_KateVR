@@ -44,6 +44,14 @@ const translations = {
     navBenefits: 'Benefits',
     navContact: 'Contact',
     navTech: 'Tech',
+    menuAbout: 'About',
+    menuBenefits: 'Benefits',
+    menuContact: 'Contact',
+    menuTech: 'Tech',
+    footerAbout: 'About',
+    footerBenefits: 'Benefits',
+    footerContact: 'Contact',
+    footerTech: 'Tech',
     realEstateSubtitle:
       'Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe',
     realEstateTitle: 'REAL ESTATE',
@@ -88,8 +96,20 @@ const translations = {
       'Charging: Fast charging - 1 hour Charging voltage and current: 5V = 0.5A',
     techTitle: 'TECH',
     techTitleBlue: 'SPECS',
+    contactUsSubtitle: 'Have any questions?',
+    contactUsTitle: 'GET IN',
+    contactUsTitleBlue: 'TOUCH',
+    contactUsDescriptionMob: 'Our manager will reply you within 15 minutes',
+    contactUsDescription: 'Our manager will reply you within 15 minutes',
+    contactUsButton: 'Contact Us',
   },
   ua: {
+    contactUsButton: "Зв'яжіться з нами",
+    contactUsSubtitle: 'Виникли запитання?',
+    contactUsTitle: "ЗВ'ЯЖІТЬСЯ",
+    contactUsTitleBlue: 'З НАМИ',
+    contactUsDescriptionMob: 'Наш менеджер відповість вам протягом 15 хвилин',
+    contactUsDescription: 'Наш менеджер відповість вам протягом 15 хвилин',
     techTitle: 'ТЕХНІЧНІ',
     techTitleBlue: 'ХАРАКТЕРИСТИКИ',
     aboutButtonNext: 'Наступний',
@@ -134,6 +154,14 @@ const translations = {
     navBenefits: 'Переваги',
     navContact: 'Котакти',
     navTech: 'Характеристики',
+    menuAbout: 'Про нас',
+    menuBenefits: 'Переваги',
+    menuContact: 'Котакти',
+    menuTech: 'Характеристики',
+    footerAbout: 'Про нас',
+    footerBenefits: 'Переваги',
+    footerContact: 'Котакти',
+    footerTech: 'Характеристики',
     realEstateSubtitle:
       'Розробляйте архітектурні проекти в глибоко реалістичному середовищі, дозволяючи відвідувачам вільно ходити та відчувати їхню атмосферу',
     realEstateTitle: 'НЕРУХОМІСТЬ',
@@ -185,7 +213,7 @@ function changeLanguage(lang) {
   elements.forEach((id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.textContent = translations[lang][id];
+      element.textContent = translations[lang][id] || '';
     }
   });
 }
@@ -199,31 +227,90 @@ let imageIndex = 0;
 
 function showNextImage() {
   document.getElementById('slider').style = 'transform: translate(0%)';
-  document.getElementById('buttonNext').classList.remove('buttonActive');
-  document.getElementById('buttonPrev').classList.add('buttonActive');
+  document.getElementById('buttonNext').classList.toggle('buttonActive');
+  document.getElementById('buttonPrev').classList.toggle('buttonActive');
 }
 
 function showPrevImage() {
   document.getElementById('slider').style = 'transform: translate(-100%)';
-  document.getElementById('buttonPrev').classList.remove('buttonActive');
-  document.getElementById('buttonNext').classList.add('buttonActive');
+  document.getElementById('buttonPrev').classList.toggle('buttonActive');
+  document.getElementById('buttonNext').classList.toggle('buttonActive');
 }
 function showAboutNextImage() {
   document.getElementById('sliderAbout').style = 'transform: translate(0%)';
-  document.getElementById('aboutButtonNext').classList.remove('buttonActive');
-  document.getElementById('aboutButtonPrev').classList.add('buttonActive');
-  document.getElementById('aboutDotNext').classList.remove('dotActive');
-  document.getElementById('aboutDotPrev').classList.add('dotActive');
+  document.getElementById('aboutButtonNext').classList.toggle('buttonActive');
+  document.getElementById('aboutButtonPrev').classList.toggle('buttonActive');
+  document.getElementById('aboutDotNext').classList.toggle('dotActive');
+  document.getElementById('aboutDotPrev').classList.toggle('dotActive');
 }
 
 function showAboutPrevImage() {
   document.getElementById('sliderAbout').style = 'transform: translate(-100%)';
-  document.getElementById('aboutButtonPrev').classList.remove('buttonActive');
-  document.getElementById('aboutButtonNext').classList.add('buttonActive');
-  document.getElementById('aboutDotPrev').classList.remove('dotActive');
-  document.getElementById('aboutDotNext').classList.add('dotActive');
+  document.getElementById('aboutButtonPrev').classList.toggle('buttonActive');
+  document.getElementById('aboutButtonNext').classList.toggle('buttonActive');
+  document.getElementById('aboutDotPrev').classList.toggle('dotActive');
+  document.getElementById('aboutDotNext').classList.toggle('dotActive');
 }
 
 function displayInfo(id) {
   document.getElementById(id).classList.toggle('displayedInfo');
 }
+
+window.addEventListener('scroll', () => {
+  const viewportHeight = window.innerHeight;
+
+  const scrolly = window.scrollY;
+
+  const isScrollStarted = window.scrollY > 10;
+
+  if (scrolly >= viewportHeight) {
+    document.getElementById('arrowUp').classList.add('arrowDisplayed');
+  } else {
+    document.getElementById('arrowUp').classList.remove('arrowDisplayed');
+  }
+
+  if (isScrollStarted) {
+    document.getElementById('header').classList.add('headerScrolled');
+  } else {
+    document.getElementById('header').classList.remove('headerScrolled');
+  }
+});
+
+function displayMenu() {
+  document.getElementById('menuMobile').classList.toggle('displayMenu');
+  console.info('hello');
+}
+
+document
+  .getElementById('contactUsButton')
+  .addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById('contactUsName');
+    const email = document.getElementById('contactUsEmail');
+    const phone = document.getElementById('contactUsPhone');
+    const message = document.getElementById('contactUsMessage');
+
+    const formMessage = document.getElementById('formMessage');
+
+    let isValid = true;
+
+    [name, email, phone, message].forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+        input.classList.add('error');
+      } else {
+        input.classList.remove('error');
+        formMessage.classList.remove('errorMessage');
+      }
+    });
+
+    if (isValid) {
+      formMessage.classList.remove('errorMessage');
+      formMessage.textContent = 'Form submitted successfully!';
+      document.querySelector('.contactUs__form').submit();
+    } else {
+      formMessage.textContent = 'Please fill out all required fields!';
+      formMessage.classList.add('errorMessage');
+    }
+  });

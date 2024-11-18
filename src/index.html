@@ -31,68 +31,139 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="header__logo">
-        <a
-          href="#"
-          class="header__logo-img"
+    <header
+      class="header"
+      id="header"
+    >
+      <div
+        class="header__wrapper container"
+        id="a"
+      >
+        <div class="header__logo">
+          <a
+            href="#"
+            class="header__logo-img"
+          >
+            <img
+              alt="#"
+              src="./images/Logo.png"
+              class="header__logo-img"
+            />
+          </a>
+          <select
+            class="header__lang"
+            name="language"
+            id="select"
+            onchange="changeLanguage(value)"
+          >
+            <option value="en">en</option>
+            <option value="ua">ua</option>
+          </select>
+        </div>
+        <div class="header__right">
+          <nav>
+            <ul class="header__nav">
+              <li>
+                <a
+                  href="#about"
+                  id="navAbout"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#tech"
+                  id="navTech"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#why"
+                  id="navBenefits"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#contactUs"
+                  id="navContact"
+                  class="header__nav-link"
+                ></a>
+              </li>
+            </ul>
+          </nav>
+          <button
+            id="buttonByu"
+            class="header__button"
+          ></button>
+        </div>
+        <button
+          class="header__burger"
+          onclick="displayMenu()"
         >
           <img
-            alt="#"
-            src="./images/Logo.png"
-            class="header__logo-img"
+            src="./images/burger.svg"
+            alt="burger"
           />
-        </a>
-        <select
-          class="header__lang"
-          name="language"
-          id="select"
-          onchange="changeLanguage(value)"
-        >
-          <option value="en">en</option>
-          <option value="ua">ua</option>
-        </select>
-      </div>
-      <div class="header__right">
-        <nav>
-          <ul class="header__nav">
-            <li>
-              <a
-                href="#about"
-                id="navAbout"
-                class="header__nav-link"
-              ></a>
-            </li>
-            <li>
-              <a
-                href="#tech"
-                id="navTech"
-                class="header__nav-link"
-              ></a>
-            </li>
-            <li>
-              <a
-                href="#benefits"
-                id="navBenefits"
-                class="header__nav-link"
-              ></a>
-            </li>
-            <li>
-              <a
-                href="#"
-                id="navContact"
-                class="header__nav-link"
-              ></a>
-            </li>
-          </ul>
-        </nav>
-        <button
-          id="buttonByu"
-          class="header__button"
-        ></button>
+        </button>
       </div>
     </header>
-    <main>
+    <main id="main">
+      <a
+        class="arrowUp"
+        id="arrowUp"
+        href="#main"
+      >
+        <img
+          src="./images/arrowUp.png"
+          alt="arrow"
+        />
+      </a>
+      <section
+        class="menu"
+        id="menuMobile"
+      >
+        <button
+          class="menu__close"
+          onclick="displayMenu()"
+        >
+          <img
+            src="./images/close.png"
+            alt="close"
+          />
+        </button>
+        <ul class="menu__nav">
+          <li>
+            <a
+              href="#about"
+              id="menuAbout"
+              class="menu__nav-link"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="#tech"
+              id="menuTech"
+              class="menu__nav-link"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="#why"
+              id="menuBenefits"
+              class="menu__nav-link"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="#contactUs"
+              id="menuContact"
+              class="menu__nav-link"
+            ></a>
+          </li>
+        </ul>
+      </section>
       <section class="hero">
         <div class="hero__container container">
           <div class="hero__wrapper">
@@ -142,14 +213,14 @@
             <ul class="hero__menu-info">
               <li>
                 <a
-                  href="#faq"
+                  href="#why"
                   class="hero__menu-info_item"
                   id="heroFaq"
                 ></a>
               </li>
               <li>
                 <a
-                  href="#help"
+                  href="#contactUs"
                   class="hero__menu-info_item"
                   id="heroHelp"
                 ></a>
@@ -368,7 +439,10 @@
           </div>
         </div>
       </section>
-      <section class="tech">
+      <section
+        class="tech"
+        id="tech"
+      >
         <div class="tech__wrapper container grid">
           <h2 class="tech__container-h2">
             <span id="techTitle"></span>
@@ -428,7 +502,10 @@
             </div>
           </div>
           <div class="tech__wrapper-img">
-            <img src="./images/imageTech.png" />
+            <img
+              src="./images/imageTech.png"
+              alt="tech"
+            />
             <button
               class="tech__wrapper-button1"
               onclick="displayInfo('wrapper-info1')"
@@ -633,8 +710,177 @@
           </div>
         </div>
       </section>
+      <section
+        class="contactUs"
+        id="contactUs"
+      >
+        <div class="contactUs__wrapper container grid">
+          <div class="contactUs__info">
+            <p
+              class="contactUs__info-subtitle"
+              id="contactUsSubtitle"
+            ></p>
+            <h2 class="contactUs__info-title">
+              <span id="contactUsTitle"></span>
+              <span
+                id="contactUsTitleBlue"
+                class="blue"
+              ></span>
+            </h2>
+            <p
+              class="contactUs__info-description"
+              id="contactUsDescription"
+            ></p>
+
+            <ul class="contactUs__info-contacts">
+              <li>
+                <a href="tel:+86057186105373">+86-0571-86105373</a>
+              </li>
+              <li>
+                <a href="mailto:global@katvr.com">global@katvr.com</a>
+              </li>
+              <li>
+                <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="contactUs__formWrapper">
+            <form class="contactUs__form">
+              <input
+                class="contactUs__form-input"
+                type="text"
+                placeholder="Name *"
+                id="contactUsName"
+                required
+              />
+              <input
+                class="contactUs__form-input"
+                type="text"
+                id="contactUsEmail"
+                placeholder="Email *"
+                required
+              />
+              <input
+                class="contactUs__form-input"
+                type="number"
+                id="contactUsPhone"
+                placeholder="Phone *"
+                required
+              />
+              <textarea
+                class="contactUs__form-input"
+                id="contactUsMessage"
+                placeholder="Message"
+                required
+              ></textarea>
+              <p
+                class="formMessage"
+                id="formMessage"
+              ></p>
+              <button
+                class="contactUs__button"
+                type="submit"
+                id="contactUsButton"
+              ></button>
+            </form>
+            <p
+              class="contactUs__form-description"
+              id="contactUsDescriptionMob"
+            ></p>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="footer container">
+      <a
+        href="#main"
+        class="footer__logo"
+      >
+        <img
+          alt="#"
+          src="./images/Logo.png"
+          class="footer__logo-img"
+        />
+      </a>
+
+      <ul class="footer__nav">
+        <li>
+          <a
+            href="#about"
+            class="footer_nav-item"
+            id="footerAbout"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#tech"
+            class="footer_nav-item"
+            id="footerTech"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#why"
+            class="footer_nav-item"
+            id="footerBenefits"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#contactUs"
+            class="footer_nav-item"
+            id="footerContact"
+          ></a>
+        </li>
+      </ul>
+      <div class="footer__contacts">
+        <ul class="footer__contacts-list">
+          <li>
+            <a href="tel:+86057186105373">+86-0571-86105373</a>
+          </li>
+          <li>
+            <a href="mailto:global@katvr.com">global@katvr.com</a>
+          </li>
+          <li>
+            <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+          </li>
+        </ul>
+        <ul class="footer__social">
+          <li>
+            <a href="https://www.facebook.com">
+              <img
+                src="./images/facebook.png"
+                alt="facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/?lang=en">
+              <img
+                src="./images/twitter.png"
+                alt="twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com">
+              <img
+                src="./images/youtube.png"
+                alt="youtube"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com">
+              <img
+                src="./images/monkey.png"
+                alt="monkey"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script src="scripts/main.js"></script>
   </body>
 </html>

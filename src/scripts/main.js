@@ -218,13 +218,6 @@ function changeLanguage(lang) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  changeLanguage('en');
-});
-
-const images = ['../../images/hero.png', './images/videoPreview.png'];
-let imageIndex = 0;
-
 function showNextImage() {
   document.getElementById('slider').style = 'transform: translate(0%)';
   document.getElementById('buttonNext').classList.toggle('buttonActive');
@@ -236,6 +229,7 @@ function showPrevImage() {
   document.getElementById('buttonPrev').classList.toggle('buttonActive');
   document.getElementById('buttonNext').classList.toggle('buttonActive');
 }
+
 function showAboutNextImage() {
   document.getElementById('sliderAbout').style = 'transform: translate(0%)';
   document.getElementById('aboutButtonNext').classList.toggle('buttonActive');
@@ -256,6 +250,10 @@ function displayInfo(id) {
   document.getElementById(id).classList.toggle('displayedInfo');
 }
 
+function displayMenu() {
+  document.getElementById('menuMobile').classList.toggle('displayMenu');
+  console.info('hello');
+}
 window.addEventListener('scroll', () => {
   const viewportHeight = window.innerHeight;
 
@@ -276,41 +274,70 @@ window.addEventListener('scroll', () => {
   }
 });
 
-function displayMenu() {
-  document.getElementById('menuMobile').classList.toggle('displayMenu');
-  console.info('hello');
-}
+document.addEventListener('DOMContentLoaded', () => {
+  changeLanguage('en');
+  document
+    .getElementById('select')
+    .addEventListener('change', (value) => changeLanguage(value));
+  document
+    .getElementById('buttonPrev')
+    .addEventListener('click', () => showNextImage());
+  document
+    .getElementById('buttonNext')
+    .addEventListener('click', () => showPrevImage());
+  document
+    .getElementById('aboutButtonPrev')
+    .addEventListener('click', () => showAboutNextImage());
+  document
+    .getElementById('aboutButtonNext')
+    .addEventListener('click', () => showAboutPrevImage());
+  document
+    .getElementById('wrapperButton1')
+    .addEventListener('click', () => displayInfo('wrapper-info1'));
+  document
+    .getElementById('wrapperButton2')
+    .addEventListener('click', () => displayInfo('wrapper-info2'));
+  document
+    .getElementById('wrapperButton3')
+    .addEventListener('click', () => displayInfo('wrapper-info3'));
 
-document
-  .getElementById('contactUsButton')
-  .addEventListener('click', function (event) {
-    event.preventDefault();
+  document
+    .getElementById('burger')
+    .addEventListener('click', () => displayMenu());
+  document
+    .getElementById('close')
+    .addEventListener('click', () => displayMenu());
+  document
+    .getElementById('contactUsButton')
+    .addEventListener('click', function (event) {
+      event.preventDefault();
 
-    const name = document.getElementById('contactUsName');
-    const email = document.getElementById('contactUsEmail');
-    const phone = document.getElementById('contactUsPhone');
-    const message = document.getElementById('contactUsMessage');
+      const name = document.getElementById('contactUsName');
+      const email = document.getElementById('contactUsEmail');
+      const phone = document.getElementById('contactUsPhone');
+      const message = document.getElementById('contactUsMessage');
 
-    const formMessage = document.getElementById('formMessage');
+      const formMessage = document.getElementById('formMessage');
 
-    let isValid = true;
+      let isValid = true;
 
-    [name, email, phone, message].forEach((input) => {
-      if (!input.value.trim()) {
-        isValid = false;
-        input.classList.add('error');
-      } else {
-        input.classList.remove('error');
+      [name, email, phone, message].forEach((input) => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.classList.add('error');
+        } else {
+          input.classList.remove('error');
+          formMessage.classList.remove('errorMessage');
+        }
+      });
+
+      if (isValid) {
         formMessage.classList.remove('errorMessage');
+        formMessage.textContent = 'Form submitted successfully!';
+        document.querySelector('.contactUs__form').submit();
+      } else {
+        formMessage.textContent = 'Please fill out all required fields!';
+        formMessage.classList.add('errorMessage');
       }
     });
-
-    if (isValid) {
-      formMessage.classList.remove('errorMessage');
-      formMessage.textContent = 'Form submitted successfully!';
-      document.querySelector('.contactUs__form').submit();
-    } else {
-      formMessage.textContent = 'Please fill out all required fields!';
-      formMessage.classList.add('errorMessage');
-    }
-  });
+});

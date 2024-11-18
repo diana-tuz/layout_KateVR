@@ -54,7 +54,6 @@
             class="header__lang"
             name="language"
             id="select"
-            onchange="changeLanguage(value)"
           >
             <option value="en">en</option>
             <option value="ua">ua</option>
@@ -100,7 +99,7 @@
         </div>
         <button
           class="header__burger"
-          onclick="displayMenu()"
+          id="burger"
         >
           <img
             src="./images/burger.svg"
@@ -126,7 +125,7 @@
       >
         <button
           class="menu__close"
-          onclick="displayMenu()"
+          id="close"
         >
           <img
             src="./images/close.png"
@@ -236,12 +235,10 @@
               <button
                 class="hero__menu-button buttonActive"
                 type="button"
-                onclick="showNextImage()"
                 id="buttonPrev"
               ></button>
               <button
                 class="hero__menu-button"
-                onclick="showPrevImage()"
                 id="buttonNext"
               ></button>
             </div>
@@ -365,12 +362,10 @@
                 <button
                   class="about__product-slider_button buttonActive"
                   type="button"
-                  onclick="showAboutNextImage()"
                   id="aboutButtonPrev"
                 ></button>
                 <button
                   class="about__product-slider_button"
-                  onclick="showAboutPrevImage()"
                   id="aboutButtonNext"
                 ></button>
               </div>
@@ -379,12 +374,10 @@
                   class="about__product-slider_dot dotActive"
                   type="button"
                   id="aboutDotPrev"
-                  onclick="showAboutNextImage()"
                 ></button>
                 <button
                   id="aboutDotNext"
                   class="about__product-slider_dot"
-                  onclick="showAboutPrevImage()"
                 ></button>
               </div>
             </div>
@@ -509,19 +502,19 @@
             />
             <button
               class="tech__wrapper-button1"
-              onclick="displayInfo('wrapper-info1')"
+              id="wrapperButton1"
             >
               +
             </button>
             <button
+              id="wrapperButton2"
               class="tech__wrapper-button2"
-              onclick="displayInfo('wrapper-info2')"
             >
               +
             </button>
             <button
+              id="wrapperButton3"
               class="tech__wrapper-button3"
-              onclick="displayInfo('wrapper-info3')"
             >
               +
             </button>

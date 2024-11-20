@@ -87,14 +87,14 @@ li {
   border: 2px solid $lightBlue;
   bottom: 30px;
   display: flex;
-  height: 40px;
+  height: 25px;
   justify-content: center;
   opacity: 0;
   padding: 15px;
   position: fixed;
-  right: 20px;
+  right: 10px;
   transition: opacity 0.5s ease-in;
-  width: 40px;
+  width: 25px;
   z-index: 10;
 
   @media screen and (min-width: 768px) {
@@ -580,11 +580,14 @@ li {
       overflow: hidden;
 
       @media screen and (min-width: 768px) {
+        grid-column: 1/3;
         margin-bottom: 183px;
+        min-width: 340px;
       }
 
       @media screen and (min-width: 1280px) {
         grid-column: 3/8;
+        width: 100%;
       }
 
       &-h2 {
@@ -596,6 +599,7 @@ li {
       }
       &_content {
         width: 100%;
+        margin-bottom: 15px;
 
         &-wrapper {
           display: flex;
@@ -608,29 +612,36 @@ li {
         flex: 1 0 100%;
         height: 100%;
         width: 100%;
+
+        @media screen and (min-width: 768px) {
+          aspect-ratio: 1.25;
+        }
+
+        @media screen and (min-width: 1280px) {
+          aspect-ratio: auto;
+        }
       }
 
       &_buttons {
+        display: none;
         align-items: center;
         border-bottom: 1px solid #212121;
-        display: flex;
         gap: 15px;
         justify-content: center;
         width: fit-content;
+
+        @media screen and (min-width: 1280px) {
+          display: flex;
+        }
       }
 
       &_button {
-        display: none;
         padding: 13px 8px;
         width: 85px;
         transition: all 0.5s ease-in-out;
 
         &:hover {
           color: $lightBlue;
-        }
-
-        @media screen and (min-width: 768px) {
-          display: inline-block;
         }
       }
 
@@ -641,7 +652,7 @@ li {
         justify-content: center;
         margin-bottom: 15px;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1280px) {
           display: none;
         }
       }
@@ -658,7 +669,7 @@ li {
       grid-column: 1/3;
 
       @media screen and (min-width: 768px) {
-        grid-column: 1/6;
+        grid-column: 3/7;
       }
 
       @media screen and (min-width: 1280px) {
@@ -689,7 +700,7 @@ li {
       grid-column: 1/3;
 
       @media screen and (min-width: 768px) {
-        grid-column: 1/6;
+        grid-column: 1/5;
       }
 
       @media screen and (min-width: 1280px) {
@@ -726,10 +737,16 @@ li {
       display: none;
 
       @media screen and (min-width: 768px) {
-        display: flex;
         background-image: url('../images/adout.png');
-        background-position: center;
+        background-position: 0;
         background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        grid-column: 5/7;
+      }
+
+      @media screen and (min-width: 1280px) {
+        background-position: center;
         grid-column: 6/12;
       }
     }
@@ -792,10 +809,9 @@ li {
     }
 
     &-img {
-      grid-column: 1/12;
-      z-index: 0;
       margin: 0 auto;
       position: relative;
+      z-index: 0;
 
       @media screen and (min-width: 1280px) {
         margin: 120px 0 0;
@@ -847,8 +863,8 @@ li {
       gap: 15px;
     }
     &-info1 {
-      top: -30%;
-      right: -20%;
+      top: 30%;
+      left: 10px;
     }
     &-info2 {
       bottom: 20%;
@@ -856,7 +872,7 @@ li {
     }
     &-info3 {
       bottom: 20%;
-      left: -40px;
+      left: 40px;
     }
   }
 
@@ -931,7 +947,6 @@ li {
       margin-top: 55px;
     }
     &-title {
-      position: relative;
       margin-bottom: 20px;
     }
 
@@ -976,6 +991,10 @@ li {
 
     @media screen and (min-width: 768px) {
       grid-column: 1/3;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1/6;
     }
 
     &-subtitle {
@@ -1033,6 +1052,7 @@ li {
       border-bottom: 1px solid #212121;
       color: $text;
       cursor: pointer;
+      min-width: 100%;
       padding: 30px;
 
       &:focus {
@@ -1062,7 +1082,7 @@ li {
 
     @media screen and (min-width: 768px) {
       margin: 0;
-      width: 30%;
+      width: fit-content;
     }
   }
 }
@@ -1118,13 +1138,15 @@ li {
   background: $blue;
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
   padding: 20px 0;
   position: fixed;
   top: 0;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in;
-  width: 100vw;
+  width: 100%;
   z-index: 13;
 
   &__close {
@@ -1174,4 +1196,12 @@ li {
 
 .errorMessage {
   color: #911818;
+}
+
+.removeScroll {
+  overflow: hidden;
+}
+
+.wrapperButtonActive {
+  color: $blue;
 }

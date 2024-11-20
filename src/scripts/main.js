@@ -248,14 +248,48 @@ function showAboutPrevImage() {
   document.getElementById('aboutDotPrev').classList.toggle('dotActive');
   document.getElementById('aboutDotNext').classList.toggle('dotActive');
 }
+function changeText() {
+  document.querySelectorAll('.wrapper-button').forEach((item) => {
+    if (item.classList.contains('wrapperButtonActive')) {
+      item.textContent = '-';
+    } else {
+      item.textContent = '+';
+    }
+  });
+}
 
-function displayInfo(id) {
-  document.getElementById(id).classList.toggle('displayedInfo');
+function displayInfo(infoId, buttonId) {
+  const infoElements = document.querySelectorAll('[id^="wrapper-info"]');
+  const buttonElements = document.querySelectorAll('[id^="wrapperButton"]');
+
+  infoElements.forEach((info) => {
+    if (info.id === infoId) {
+      info.classList.toggle('displayedInfo');
+    } else {
+      info.classList.remove('displayedInfo');
+    }
+  });
+
+  buttonElements.forEach((button) => {
+    if (button.id === buttonId) {
+      button.classList.toggle('wrapperButtonActive');
+    } else {
+      button.classList.remove('wrapperButtonActive');
+    }
+  });
+
+  buttonElements.forEach((button) => {
+    if (button.classList.contains('wrapperButtonActive')) {
+      button.textContent = '-';
+    } else {
+      button.textContent = '+';
+    }
+  });
 }
 
 function displayMenu() {
   document.getElementById('menuMobile').classList.toggle('displayMenu');
-  console.info('hello');
+  document.getElementById('body').classList.toggle('removeScroll');
 }
 function displayOptions() {
   document.getElementById('list').classList.toggle('displayOptions');
@@ -282,6 +316,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   changeLanguage('en');
+  changeText();
   document
     .getElementById('lang')
     .addEventListener('click', () => displayOptions());
@@ -301,17 +336,29 @@ document.addEventListener('DOMContentLoaded', () => {
     .getElementById('aboutButtonPrev')
     .addEventListener('click', () => showAboutNextImage());
   document
+    .getElementById('aboutDotPrev')
+    .addEventListener('click', () => showAboutNextImage());
+  document
     .getElementById('aboutButtonNext')
     .addEventListener('click', () => showAboutPrevImage());
   document
+    .getElementById('aboutDotNext')
+    .addEventListener('click', () => showAboutPrevImage());
+  document
     .getElementById('wrapperButton1')
-    .addEventListener('click', () => displayInfo('wrapper-info1'));
+    .addEventListener('click', () =>
+      displayInfo('wrapper-info1', 'wrapperButton1'),
+    );
   document
     .getElementById('wrapperButton2')
-    .addEventListener('click', () => displayInfo('wrapper-info2'));
+    .addEventListener('click', () =>
+      displayInfo('wrapper-info2', 'wrapperButton2'),
+    );
   document
     .getElementById('wrapperButton3')
-    .addEventListener('click', () => displayInfo('wrapper-info3'));
+    .addEventListener('click', () =>
+      displayInfo('wrapper-info3', 'wrapperButton3'),
+    );
 
   document
     .getElementById('burger')
@@ -350,7 +397,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isValid) {
         formMessage.classList.remove('errorMessage');
         formMessage.textContent = 'Form submitted successfully!';
-        document.querySelector('.contactUs__form').submit();
+        // document.querySelector('.contactUs__form').submit();
+        [name, email, phone, message].forEach((input) => {
+          input.value = '';
+        });
       } else {
         formMessage.textContent = 'Please fill out all required fields!';
         formMessage.classList.add('errorMessage');

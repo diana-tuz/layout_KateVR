@@ -398,9 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
         formMessage.classList.remove('errorMessage');
         formMessage.textContent = 'Form submitted successfully!';
         // document.querySelector('.contactUs__form').submit();
+
         [name, email, phone, message].forEach((input) => {
           input.value = '';
+          input.ariaAutoComplete = '';
         });
+        setTimeout(() => (formMessage.textContent = ''), 1000);
       } else {
         formMessage.textContent = 'Please fill out all required fields!';
         formMessage.classList.add('errorMessage');

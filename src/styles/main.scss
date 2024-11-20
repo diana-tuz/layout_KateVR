@@ -1205,3 +1205,14 @@ li {
 .wrapperButtonActive {
   color: $blue;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover {
+  border-bottom: 1px solid $gray;
+  -webkit-text-fill-color: $lightBlue;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
